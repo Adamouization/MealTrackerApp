@@ -11,10 +11,12 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK: Properties
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    /// UIViewController method called when the view controller’s content view is created and loaded from a storyboard.
     override func viewDidLoad() {
         super.viewDidLoad()
 
