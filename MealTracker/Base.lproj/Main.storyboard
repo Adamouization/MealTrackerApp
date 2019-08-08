@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="quP-ZW-EPm">
-                                <rect key="frame" x="16" y="63.999999999999993" width="339" height="96.333333333333314"/>
+                                <rect key="frame" x="16" y="63.999999999999972" width="339" height="443.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmA-lS-iPs">
                                         <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="20.333333333333332"/>
@@ -40,6 +40,12 @@
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Veg-k6-KSY"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="350" placeholderIntrinsicHeight="infinite" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="6Q8-1l-68l">
+                                        <rect key="frame" x="0.0" y="104.33333333333337" width="339" height="339"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="6Q8-1l-68l" secondAttribute="height" multiplier="1:1" id="vP9-sd-OLm"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="HP4-Zn-arU" secondAttribute="trailing" id="OGn-xn-tRj"/>
@@ -64,4 +70,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="136.69950738916256"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultImage" width="540" height="540"/>
+    </resources>
 </document>
