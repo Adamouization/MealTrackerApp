@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var mealNameLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
     
     /// UIViewController method called when the view controller’s content view is created and loaded from a storyboard.
     override func viewDidLoad() {
@@ -61,10 +62,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     
     //MARK: Actions
-    
-    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        mealNameLabel.text = "Default Text"
-    }
     
     @IBAction func selectImageFromPhotosLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard in case user clicks image placeholder while typing.
