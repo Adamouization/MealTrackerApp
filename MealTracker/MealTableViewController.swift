@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealTableViewController: UITableViewController {
     
@@ -21,6 +22,7 @@ class MealTableViewController: UITableViewController {
         loadSampleMeals()
     }
 
+    
     // MARK: - Table view data source
 
     /// Makes the table view show 1 section.
@@ -33,7 +35,6 @@ class MealTableViewController: UITableViewController {
         return meals.count
     }
 
-    ///
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "MealTableViewCell"
@@ -89,15 +90,48 @@ class MealTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
+    
+    //MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    /// In a storyboard-based application, you will often want to do a little preparation before navigation.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+            // User is adding a new meal
+            case "AddItem":
+                os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+            
+            // User is editing a meal, so need to display meal data in meal detail scene.
+            case "ShowDetail":
+                
+                // Get the destination view controller.
+                guard let mealDetailViewController = segue.destination as? MealViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                
+                // Get the meal cell selected by the user.
+                guard let selectedMealCell = sender as? MealTableViewCell else {
+                    fatalError("Unexpected sender: \(String(describing: sender))")
+                }
+                
+                // Get the index path of the selected cell.
+                guard let indexPath = tableView.indexPath(for: selectedMealCell) else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+                
+                // Look up the meal object for that path and pass it to the destination view controller once index path is retrieved.
+                let selectedMeal = meals[indexPath.row]
+                mealDetailViewController.meal = selectedMeal
+            
+            // Default case in case segue identifier is nil.
+            default:
+                fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
     
     //MARK: Actions
     
@@ -114,6 +148,7 @@ class MealTableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
+    
     
     //MARK: Private Methods
     
