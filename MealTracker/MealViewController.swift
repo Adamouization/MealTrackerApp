@@ -27,7 +27,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Meal name.
+        updateSaveButtonState()
     }
+    
     
     //MARK: UITextFieldDelegate
     
@@ -37,9 +41,20 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         return true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        // add feature
+    /// Disable the Save button while the user is editing the text field.
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // Check if the text field has text in it to enable the Save button if it does.
+        updateSaveButtonState()
+        
+        // Sets the title of the scene to that text.
+        navigationItem.title = textField.text
+    }
+    
     
     //MARK: UIImagePickerControllerDelegate
     
@@ -64,6 +79,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
     }
     
+    
     //MARK: Navigation
     
     /// This method lets you configure a view controller before it's presented.
@@ -84,6 +100,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         meal = Meal(name: name, photo: photo, rating: rating)
     }
     
+    
     //MARK: Actions
     
     @IBAction func selectImageFromPhotosLibrary(_ sender: UITapGestureRecognizer) {
@@ -102,4 +119,15 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         // Asks ViewController to present the view controller defined by imagePickerController.
         present(imagePickerController, animated: true, completion: nil)
     }
+    
+    
+    //MARK: Private Methods
+    
+    /// Helper method to disable the Save button if the text field is empty.
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
+    
 }
