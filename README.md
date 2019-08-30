@@ -1,5 +1,4 @@
-MealTrackerApp
-==============
+# MealTrackerApp [![Build Status](https://travis-ci.org/Adamouization/MealTrackerApp.svg?branch=master)](https://travis-ci.org/Adamouization/MealTrackerApp)
 
 Learning Swift by building a simple application to track meals based on the official online [Swift tutorial](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1) and further improving the app by discovering concepts not covered by the tutorial.
 
