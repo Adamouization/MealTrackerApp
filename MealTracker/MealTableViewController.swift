@@ -137,15 +137,23 @@ class MealTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
-            // Add a new meal by computeing the location in the table view where the new table view cell representing
-            // the new meal will be inserted, and stores it in a local constant called newIndexPath
-            let newIndexPath = IndexPath(row: meals.count, section: 0)
-            
-            // Adds the new meal to the existing list of meals in the data model.
-            meals.append(meal)
-            
-            // Animates the addition of a new row to the table view.
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            // Checks whether a row in the table view is selected to update an existing meal.
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                meals[selectedIndexPath.row] = meal
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            // No selected row in the table view means that user tapped the Add button to get to the meal detail scene.
+            else {
+                // Add a new meal by computing the location in the table view where the new table view cell representing
+                // the new meal will be inserted, and stores it in a local constant called newIndexPath
+                let newIndexPath = IndexPath(row: meals.count, section: 0)
+                
+                // Adds the new meal to the existing list of meals in the data model.
+                meals.append(meal)
+                
+                // Animates the addition of a new row to the table view.
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     
