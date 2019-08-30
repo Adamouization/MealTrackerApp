@@ -19,10 +19,15 @@ class MealTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
+        // Load any saved meals, otherwise load sample data.
+        if let savedMeals = loadMeals() {
+            meals += savedMeals
+        } else {
+            // Load the sample data.
+            loadSampleMeals()
+        }
+        
         super.viewDidLoad()
-
-        // Load the sample data.
-        loadSampleMeals()
     }
 
     
@@ -67,8 +72,9 @@ class MealTableViewController: UITableViewController {
     /// Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the meal from the array.
+            // Delete the meal from the array and save it whenever a meal is deleted.
             meals.remove(at: indexPath.row)
+            saveMeals()
             // Delete the row from the data source.
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
@@ -136,14 +142,17 @@ class MealTableViewController: UITableViewController {
     
     //MARK: Actions
     
+    /// Updates list and saves the meals array whenever a new one is added or an existing one is updated.
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MealViewController, let meal = sourceViewController.meal {
+            
             // Checks whether a row in the table view is selected to update an existing meal.
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 meals[selectedIndexPath.row] = meal
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
-            // No selected row in the table view means that user tapped the Add button to get to the meal detail scene.
+            
+                // No selected row in the table view means that user tapped the Add button to get to the meal detail scene.
             else {
                 // Add a new meal by computing the location in the table view where the new table view cell representing
                 // the new meal will be inserted, and stores it in a local constant called newIndexPath
@@ -155,6 +164,9 @@ class MealTableViewController: UITableViewController {
                 // Animates the addition of a new row to the table view.
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
+            
+            // Save the meals.
+            saveMeals()
         }
     }
     
@@ -183,7 +195,25 @@ class MealTableViewController: UITableViewController {
         
         // Add the meals to the array.
         meals += [meal1, meal2, meal3]
+    }
+    
+    /// Save and load the meal list whenever a user adds, edits, or removes a meal.
+    private func saveMeals() {
+        // Attempts to archive the meals array to a specific location, and returns true if it’s successful.
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
         
+        // Log success/failure to save the data.
+        if isSuccessfulSave {
+            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    /// Loads meals. Has a return type of an optional array of Meal objects (might return an array of Meal objects or (nil).
+    private func loadMeals() -> [Meal]? {
+        // Attempts to unarchive the object stored at the path Meal.ArchiveURL.path and downcast that object to an array of Meal objects.
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
     }
 
 }
