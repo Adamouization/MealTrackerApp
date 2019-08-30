@@ -29,6 +29,7 @@ import UIKit
         }
     }
 
+    
     //MARK: Initialization
     
     override init(frame: CGRect) {
@@ -40,6 +41,7 @@ import UIKit
         super.init(coder: coder)
         setupButtons()
     }
+    
     
     //MARK: Button Action
     
@@ -59,6 +61,7 @@ import UIKit
             rating = selectedRating
         }
     }
+    
     
     //MARK: Private Methods
     

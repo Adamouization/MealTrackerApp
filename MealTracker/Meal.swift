@@ -16,6 +16,7 @@ class Meal {
     var photo: UIImage?
     var rating: Int
     
+    
     //MARK: Initialization
     
     init?(name: String, photo: UIImage?, rating: Int) {
