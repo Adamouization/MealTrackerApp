@@ -90,11 +90,22 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     //MARK: Navigation
     
-    /// Dismisses the modal scene and animates the transition back to the previous scene.
+    /// Dismisses the modal scene and animates the transition back to the previous scene in 2 different ways depending on the style of presentation (modal or push presentation).
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // The app does not store any data when the meal detail scene is dismissed,
-        //and neither the prepare(for:sender:) method nor the unwind action method are called.
-        dismiss(animated: true, completion: nil)
+        // Creates a Boolean value that indicates whether the view controller that presented this scene is of type UINavigationController
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            // The app does not store any data when the meal detail scene is dismissed,
+            //and neither the prepare(for:sender:) method nor the unwind action method are called.
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
     }
     
     /// This method lets you configure a view controller before it's presented.
