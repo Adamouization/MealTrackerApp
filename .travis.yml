@@ -1,8 +1,8 @@
 language: objective-c
-osx_image: xcode10.3
+osx_image: xcode12.4
 
 script:
-    - xcodebuild clean test -project MealTracker.xcodeproj -scheme MealTracker -destination "platform=iOS Simulator,name=iPhone Xs,OS=10.3" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
+    - xcodebuild clean test -project MealTracker.xcodeproj -scheme MealTracker -destination "platform=iOS Simulator,name=iPhone Xs,OS=12.4" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO -quiet
 
 # xcode_project: MealTracker.xcodeproj
 # xcode_scheme: MealTrackerTests
