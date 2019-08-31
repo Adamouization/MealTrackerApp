@@ -1,6 +1,6 @@
 //
-//  MealTrackerAppTests.swift
-//  MealTrackerAppTests
+//  MealTrackerTests.swift
+//  MealTrackerTests
 //
 //  Created by Adam Jaamour on 28/08/2019.
 //  Copyright © 2019 Adam Jaamour. All rights reserved.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import MealTracker
 
-class MealTrackerAppTests: XCTestCase {
+class MealTrackerTests: XCTestCase {
 
     //MARK: Meal Class Tests
     

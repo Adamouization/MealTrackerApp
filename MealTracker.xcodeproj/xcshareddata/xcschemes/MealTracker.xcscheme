@@ -33,16 +33,6 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "70C38B892316FFF50047DE4A"
-               BuildableName = "MealTrackerAppTests.xctest"
-               BlueprintName = "MealTrackerAppTests"
-               ReferencedContainer = "container:MealTracker.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "703F179F22F96360000DE5DC"
                BuildableName = "MealTrackerTests.xctest"
                BlueprintName = "MealTrackerTests"
                ReferencedContainer = "container:MealTracker.xcodeproj">
