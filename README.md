@@ -6,9 +6,9 @@ Learning Swift by building a simple application to track meals based on the offi
 
 Additional features to add:
 
-* [ ] Implement continous integration (Travis CI)
-* [ ] Add more data, including meal location and meal description
+* [X] Implement continous integration (Travis CI)
 * [ ] Create simple app icon
+* [ ] Add more data, including meal location and meal description
 * [ ] Test on physical device rather than iOS simulator
 * [ ] Use auto layout to adapt rating stars when in edit mode
 
