@@ -8,10 +8,9 @@ Additional features:
 
 * [X] Implement continous integration (Travis CI)
 * [X] Create simple app icon
-* [ ] Add more data, including meal location and meal description
-* [ ] Test on physical device rather than iOS simulator
-* [ ] Use auto layout to adapt rating stars when in edit mode
-* [ ] Write more unit tests
+* [ ] Add more data, including meal location, meal description and date.
+* [ ] Use auto layout to adapt rating stars when entering edit mode
+* [ ] Write additional unit tests
 
 Features implemented from the tutorial:
 
@@ -23,7 +22,9 @@ Features implemented from the tutorial:
 
 ### Screenshots
 
-todo
+ Home Screen               |  Edit Meal                | Add New Meal              | Delete Meal
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:
+<img src="https://raw.githubusercontent.com/Adamouization/MealTrackerApp/master/Media/Screenshots/home.png" width="200">  | <img src="https://github.com/Adamouization/MealTrackerApp/blob/master/Media/Screenshots/edit_meal.png" width="200"> |  <img src="https://raw.githubusercontent.com/Adamouization/MealTrackerApp/master/Media/Screenshots/add_new_meal.png" width="200"> | <img src="https://raw.githubusercontent.com/Adamouization/MealTrackerApp/master/Media/Screenshots/delete_meal.png" width="200">
 
 ## License 
 * see [LICENSE](https://github.com/Adamouization/MealTrackerApp/blob/master/LICENSE) file
