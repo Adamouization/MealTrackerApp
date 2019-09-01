@@ -179,6 +179,8 @@ class MealTableViewController: UITableViewController {
         let photo1 = UIImage(named: "meal1")
         let photo2 = UIImage(named: "meal2")
         let photo3 = UIImage(named: "meal3")
+        let photo4 = UIImage(named: "meal4")
+        let photo5 = UIImage(named: "meal5")
         
         // Create 3 meal objects.
         guard let meal1 = Meal(name: "Kobe Beef Box", photo: photo1, rating: 5) else {
@@ -193,8 +195,16 @@ class MealTableViewController: UITableViewController {
             fatalError("Unable to instantiate meal3")
         }
         
+        guard let meal4 = Meal(name: "Sea Bream Carpacio", photo: photo4, rating: 5) else {
+            fatalError("Unable to instantiate meal4")
+        }
+        
+        guard let meal5 = Meal(name: "Lamb Chop with Purée", photo: photo5, rating: 4) else {
+            fatalError("Unable to instantiate meal5")
+        }
+        
         // Add the meals to the array.
-        meals += [meal1, meal2, meal3]
+        meals += [meal1, meal2, meal3, meal4, meal5]
     }
     
     /// Save and load the meal list whenever a user adds, edits, or removes a meal.
