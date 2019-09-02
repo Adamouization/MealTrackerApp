@@ -1,4 +1,4 @@
-# MealTrackerApp [![Build Status](https://travis-ci.org/Adamouization/MealTrackerApp.svg?branch=master)](https://travis-ci.org/Adamouization/MealTrackerApp)
+# MealTrackerApp [![Build Status](https://travis-ci.org/Adamouization/MealTrackerApp.svg?branch=master)](https://travis-ci.org/Adamouization/MealTrackerApp) [![GitHub stars](https://img.shields.io/github/stars/Adamouization/MealTrackerApp)](https://github.com/Adamouization/MealTrackerApp/stargazers) [![GitHub license](https://img.shields.io/github/license/Adamouization/MealTrackerApp)](https://github.com/Adamouization/MealTrackerApp/blob/master/LICENSE)
 
 Learning Swift by building a simple application to track meals based on the official online [Swift tutorial](https://developer.apple.com/library/archive/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html#//apple_ref/doc/uid/TP40015214-CH2-SW1) and further improving the app by discovering concepts not covered by the tutorial.
 
@@ -12,6 +12,8 @@ Additional features:
 * [ ] Add more data, including meal location, meal description and date.
 * [ ] Use auto layout to adapt rating stars when entering edit mode
 * [ ] Write additional unit tests
+* [ ] Allow re-ordering of meal entries
+* [ ] Make ratio of all uploaded pictures square (1:1)
 
 Features implemented from the tutorial:
 
