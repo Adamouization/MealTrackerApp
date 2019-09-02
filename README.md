@@ -8,6 +8,7 @@ Additional features:
 
 * [X] Implement continous integration (Travis CI)
 * [X] Create simple app icon
+* [X] Add a splashscreen
 * [ ] Add more data, including meal location, meal description and date.
 * [ ] Use auto layout to adapt rating stars when entering edit mode
 * [ ] Write additional unit tests
