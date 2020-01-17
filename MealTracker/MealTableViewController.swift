@@ -16,6 +16,11 @@ class MealTableViewController: UITableViewController {
     var meals = [Meal]()
 
     override func viewDidLoad() {
+        // Force light view on table view.
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
+        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
